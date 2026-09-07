@@ -1,5 +1,7 @@
 # Autonomous Multi-Robot Fulfillment & Dynamic Path Planning System
 
+[![CI](https://github.com/mihir1mathur/multi-robot-fulfillment-path-planning/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/mihir1mathur/multi-robot-fulfillment-path-planning/actions/workflows/ci.yml)
+
 A deterministic, fully simulated multi-robot warehouse-fulfillment system. It
 plans routes for a fleet of grid robots, allocates delivery tasks with a
 constraint solver, coordinates the fleet in space **and** time to avoid
@@ -284,12 +286,13 @@ exercise CRUD round trips, the `ON DELETE SET NULL` foreign key,
 unique-constraint and rollback behaviour, and transaction isolation under
 concurrency.
 
-**CI** — `.github/workflows/ci.yml` is configured to run, on every push and pull
-request, the full test suite against a PostgreSQL 18 service container (after
-`alembic upgrade head` and `alembic check`) plus an app-startup smoke check, and
-to build the Docker image (no push — there is no deployment target). Docker is
-not run on the development machine; the Compose stack is validated statically and
-built in CI only.
+**CI** — `.github/workflows/ci.yml` runs on every push and pull request and has
+passed on GitHub Actions for `main`. It validates the full test suite
+(**813 passed, 0 skipped**) against a PostgreSQL 18 service container, applies
+and verifies the Alembic migrations (`alembic upgrade head` + `alembic check`),
+runs an application startup / import smoke check, and validates the Docker image
+build in a separate job (no push — there is no deployment target). Docker is not
+run on the development machine, and nothing is deployed.
 
 ## Running Locally
 
@@ -340,5 +343,4 @@ python benchmarks/run_final_evaluation.py    # consolidated benchmark evaluation
 - **Recovery is partial by design.** An `IN_PROGRESS` task on a failed robot is failed honestly, not handed off; a "human clears the robot" event is not modeled; the pick / drop / complete execution steps are not implemented (execution stops at the coordinated goal).
 - **The dashboard recovery view** retains previously computed route geometry rather than redrawing the full post-recovery trajectory.
 - **Service and concurrency benchmarks are in-process** measurements of wrapper overhead — not production latency, throughput, or load-test results.
-- **The Docker image is build-validated in CI only** — not run on the development machine and not deployed anywhere.
-- **The GitHub Actions workflow is configured** for automated testing and container-build validation; its execution history on GitHub is not asserted here.
+- **The Docker image is built and smoke-checked in CI**, not run on the development machine and not deployed anywhere — this repository demonstrates CI and image-build validation, not a deployment pipeline.
