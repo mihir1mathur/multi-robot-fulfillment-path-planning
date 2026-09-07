@@ -1,0 +1,49 @@
+# Project dependencies.
+#
+# The simulation, path planning, route execution and coordination layers use
+# only the Python standard library. Dependencies are added here only when code
+# that needs them actually exists.
+
+# Test runner.
+pytest==8.3.4
+
+# Constraint-programming / SAT solver, used by the optimisation-based task
+# allocator (robotics/allocation/cp_sat_allocator.py). The greedy baseline and
+# every other algorithm layer work without it.
+ortools==9.15.6755
+
+# --- Service / persistence layer (robotics/api, robotics/services,
+#     robotics/persistence) --------------------------------------------------
+
+# REST framework and ASGI server.
+fastapi==0.139.0
+uvicorn==0.49.0
+
+# Request/response validation and typed configuration.
+pydantic==2.13.4
+pydantic-settings==2.14.2
+
+# ORM and the PostgreSQL driver. The production target is PostgreSQL
+# (postgresql+psycopg://...); SQLAlchemy also runs the same models on SQLite,
+# which the fast unit / API tests use.
+SQLAlchemy==2.0.51
+psycopg[binary]==3.3.4
+
+# Database migrations. Alembic owns the schema in production / Docker
+# (alembic upgrade head); create_all is dev / test convenience only.
+alembic==1.19.2
+
+# Authentication: signed JWT access tokens + bcrypt password hashing.
+PyJWT==2.13.0
+bcrypt==5.0.0
+
+# HTTP client used by the FastAPI TestClient in the API tests and the service
+# benchmark, and by the dashboard's API client (frontend/api_client.py).
+httpx==0.28.1
+
+# --- Demonstration dashboard (frontend/) ------------------------------------
+# A thin visualization client that talks to the FastAPI service over HTTP. It
+# contains no algorithm code. Streamlit is the UI; Matplotlib draws the
+# warehouse grid. Neither is imported by the robotics/ packages or the API.
+streamlit==1.59.1
+matplotlib==3.11.0

@@ -1,0 +1,101 @@
+{
+  "config": {
+    "backend": "sqlite file (writers serialise)",
+    "requested_backend": "sqlite",
+    "concurrency_levels": [
+      1,
+      5
+    ],
+    "requests_per_level": 20,
+    "race_threads": 8,
+    "transport": "fastapi.testclient (in-process ASGI, thread pool of clients)",
+    "timer": "time.perf_counter",
+    "python": "3.11.9",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "note": "IN-PROCESS concurrency check on the dev machine. NOT a load test, NOT production latency/throughput. Only the success counts and the integrity/determinism booleans are deterministic."
+  },
+  "api_concurrency": [
+    {
+      "concurrency": 1,
+      "requests": 20,
+      "successful": 20,
+      "failed": 0,
+      "status_counts": {
+        "200": 20
+      },
+      "elapsed_s": 0.2147,
+      "throughput_req_per_s": 93.1,
+      "p50_latency_ms": 10.778,
+      "p95_latency_ms": 12.007,
+      "max_latency_ms": 12.059
+    },
+    {
+      "concurrency": 5,
+      "requests": 20,
+      "successful": 20,
+      "failed": 0,
+      "status_counts": {
+        "200": 20
+      },
+      "elapsed_s": 0.373,
+      "throughput_req_per_s": 53.6,
+      "p50_latency_ms": 40.933,
+      "p95_latency_ms": 226.872,
+      "max_latency_ms": 351.024
+    }
+  ],
+  "race_on_duplicate_create": {
+    "threads": 8,
+    "status_counts": {
+      "201": 1,
+      "409": 7
+    },
+    "created_201": 1,
+    "conflict_409": 7,
+    "server_error_5xx": 0,
+    "rows_for_RACE_in_db": 1,
+    "integrity_held": true
+  },
+  "fleet_workload_determinism": {
+    "fleet_sizes": [
+      2,
+      5,
+      10,
+      20
+    ],
+    "scenarios": 4,
+    "sequential_elapsed_s": 0.0342,
+    "concurrent_elapsed_s": 0.0398,
+    "results_identical": true,
+    "per_fleet": {
+      "2": {
+        "success": true,
+        "planned": 2,
+        "makespan": 7,
+        "move_steps": 14,
+        "wait_steps": 0
+      },
+      "5": {
+        "success": true,
+        "planned": 5,
+        "makespan": 8,
+        "move_steps": 40,
+        "wait_steps": 0
+      },
+      "10": {
+        "success": true,
+        "planned": 10,
+        "makespan": 13,
+        "move_steps": 130,
+        "wait_steps": 0
+      },
+      "20": {
+        "success": true,
+        "planned": 20,
+        "makespan": 23,
+        "move_steps": 460,
+        "wait_steps": 0
+      }
+    }
+  }
+}

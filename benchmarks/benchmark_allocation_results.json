@@ -1,0 +1,296 @@
+{
+  "config": {
+    "grid_size": 24,
+    "obstacle_density": 0.08,
+    "fleet_task_configs": [
+      [
+        5,
+        5
+      ],
+      [
+        10,
+        10
+      ]
+    ],
+    "scenarios_per_config": 3,
+    "timing_repeats": 2,
+    "master_seed": 8675309,
+    "timer": "time.perf_counter_ns",
+    "note": "Path-cost preprocessing is done once per scenario and excluded from the per-allocator timing. Cost comparison is restricted to scenarios where both allocators assigned the same number of tasks."
+  },
+  "total_scenarios": 6,
+  "total_runs": 12,
+  "raw_runs": [
+    {
+      "algorithm": "greedy",
+      "scenario_id": "5r-5t-s00",
+      "robot_count": 5,
+      "task_count": 5,
+      "assigned_task_count": 3,
+      "unassigned_task_count": 2,
+      "eligible_pair_count": 14,
+      "infeasible_pair_count": 11,
+      "total_estimated_travel_cost": 67,
+      "allocation_time_ms": 0.0773,
+      "solver_status": "GREEDY",
+      "valid": true
+    },
+    {
+      "algorithm": "cp_sat",
+      "scenario_id": "5r-5t-s00",
+      "robot_count": 5,
+      "task_count": 5,
+      "assigned_task_count": 4,
+      "unassigned_task_count": 1,
+      "eligible_pair_count": 14,
+      "infeasible_pair_count": 11,
+      "total_estimated_travel_cost": 93,
+      "allocation_time_ms": 2.3426,
+      "solver_status": "OPTIMAL",
+      "valid": true
+    },
+    {
+      "algorithm": "greedy",
+      "scenario_id": "5r-5t-s01",
+      "robot_count": 5,
+      "task_count": 5,
+      "assigned_task_count": 3,
+      "unassigned_task_count": 2,
+      "eligible_pair_count": 11,
+      "infeasible_pair_count": 14,
+      "total_estimated_travel_cost": 65,
+      "allocation_time_ms": 0.079,
+      "solver_status": "GREEDY",
+      "valid": true
+    },
+    {
+      "algorithm": "cp_sat",
+      "scenario_id": "5r-5t-s01",
+      "robot_count": 5,
+      "task_count": 5,
+      "assigned_task_count": 3,
+      "unassigned_task_count": 2,
+      "eligible_pair_count": 11,
+      "infeasible_pair_count": 14,
+      "total_estimated_travel_cost": 41,
+      "allocation_time_ms": 2.2633,
+      "solver_status": "OPTIMAL",
+      "valid": true
+    },
+    {
+      "algorithm": "greedy",
+      "scenario_id": "5r-5t-s02",
+      "robot_count": 5,
+      "task_count": 5,
+      "assigned_task_count": 4,
+      "unassigned_task_count": 1,
+      "eligible_pair_count": 17,
+      "infeasible_pair_count": 8,
+      "total_estimated_travel_cost": 89,
+      "allocation_time_ms": 0.1718,
+      "solver_status": "GREEDY",
+      "valid": true
+    },
+    {
+      "algorithm": "cp_sat",
+      "scenario_id": "5r-5t-s02",
+      "robot_count": 5,
+      "task_count": 5,
+      "assigned_task_count": 4,
+      "unassigned_task_count": 1,
+      "eligible_pair_count": 17,
+      "infeasible_pair_count": 8,
+      "total_estimated_travel_cost": 86,
+      "allocation_time_ms": 2.8288,
+      "solver_status": "OPTIMAL",
+      "valid": true
+    },
+    {
+      "algorithm": "greedy",
+      "scenario_id": "10r-10t-s00",
+      "robot_count": 10,
+      "task_count": 10,
+      "assigned_task_count": 9,
+      "unassigned_task_count": 1,
+      "eligible_pair_count": 80,
+      "infeasible_pair_count": 20,
+      "total_estimated_travel_cost": 299,
+      "allocation_time_ms": 0.3213,
+      "solver_status": "GREEDY",
+      "valid": true
+    },
+    {
+      "algorithm": "cp_sat",
+      "scenario_id": "10r-10t-s00",
+      "robot_count": 10,
+      "task_count": 10,
+      "assigned_task_count": 9,
+      "unassigned_task_count": 1,
+      "eligible_pair_count": 80,
+      "infeasible_pair_count": 20,
+      "total_estimated_travel_cost": 265,
+      "allocation_time_ms": 7.9748,
+      "solver_status": "OPTIMAL",
+      "valid": true
+    },
+    {
+      "algorithm": "greedy",
+      "scenario_id": "10r-10t-s01",
+      "robot_count": 10,
+      "task_count": 10,
+      "assigned_task_count": 8,
+      "unassigned_task_count": 2,
+      "eligible_pair_count": 71,
+      "infeasible_pair_count": 29,
+      "total_estimated_travel_cost": 189,
+      "allocation_time_ms": 0.3551,
+      "solver_status": "GREEDY",
+      "valid": true
+    },
+    {
+      "algorithm": "cp_sat",
+      "scenario_id": "10r-10t-s01",
+      "robot_count": 10,
+      "task_count": 10,
+      "assigned_task_count": 8,
+      "unassigned_task_count": 2,
+      "eligible_pair_count": 71,
+      "infeasible_pair_count": 29,
+      "total_estimated_travel_cost": 152,
+      "allocation_time_ms": 6.1544,
+      "solver_status": "OPTIMAL",
+      "valid": true
+    },
+    {
+      "algorithm": "greedy",
+      "scenario_id": "10r-10t-s02",
+      "robot_count": 10,
+      "task_count": 10,
+      "assigned_task_count": 7,
+      "unassigned_task_count": 3,
+      "eligible_pair_count": 58,
+      "infeasible_pair_count": 42,
+      "total_estimated_travel_cost": 142,
+      "allocation_time_ms": 0.2996,
+      "solver_status": "GREEDY",
+      "valid": true
+    },
+    {
+      "algorithm": "cp_sat",
+      "scenario_id": "10r-10t-s02",
+      "robot_count": 10,
+      "task_count": 10,
+      "assigned_task_count": 7,
+      "unassigned_task_count": 3,
+      "eligible_pair_count": 58,
+      "infeasible_pair_count": 42,
+      "total_estimated_travel_cost": 121,
+      "allocation_time_ms": 5.9262,
+      "solver_status": "OPTIMAL",
+      "valid": true
+    }
+  ],
+  "raw_execution": [
+    {
+      "scenario_id": "5r-5t-s00",
+      "assignments_executed": 4,
+      "routes_reached_pickup": 3,
+      "planned_steps": 36,
+      "executed_steps": 33,
+      "distance_travelled": 33.0,
+      "battery_consumed": 33.0
+    },
+    {
+      "scenario_id": "5r-5t-s01",
+      "assignments_executed": 3,
+      "routes_reached_pickup": 3,
+      "planned_steps": 27,
+      "executed_steps": 27,
+      "distance_travelled": 27.0,
+      "battery_consumed": 27.0
+    },
+    {
+      "scenario_id": "5r-5t-s02",
+      "assignments_executed": 4,
+      "routes_reached_pickup": 3,
+      "planned_steps": 48,
+      "executed_steps": 46,
+      "distance_travelled": 46.0,
+      "battery_consumed": 46.0
+    },
+    {
+      "scenario_id": "10r-10t-s00",
+      "assignments_executed": 9,
+      "routes_reached_pickup": 7,
+      "planned_steps": 92,
+      "executed_steps": 78,
+      "distance_travelled": 78.0,
+      "battery_consumed": 78.0
+    },
+    {
+      "scenario_id": "10r-10t-s01",
+      "assignments_executed": 8,
+      "routes_reached_pickup": 6,
+      "planned_steps": 66,
+      "executed_steps": 52,
+      "distance_travelled": 52.0,
+      "battery_consumed": 52.0
+    },
+    {
+      "scenario_id": "10r-10t-s02",
+      "assignments_executed": 7,
+      "routes_reached_pickup": 7,
+      "planned_steps": 50,
+      "executed_steps": 50,
+      "distance_travelled": 50.0,
+      "battery_consumed": 50.0
+    }
+  ],
+  "aggregates_by_algorithm": [
+    {
+      "algorithm": "cp_sat",
+      "scenarios": 6,
+      "assignment_rate": 0.7778,
+      "median_allocation_time_ms": 4.3775,
+      "p50_allocation_time_ms": 2.8288,
+      "p95_allocation_time_ms": 7.9748,
+      "median_total_estimated_cost": 107.0,
+      "valid_result_rate": 1.0,
+      "success_rate": 1.0
+    },
+    {
+      "algorithm": "greedy",
+      "scenarios": 6,
+      "assignment_rate": 0.7556,
+      "median_allocation_time_ms": 0.2357,
+      "p50_allocation_time_ms": 0.1718,
+      "p95_allocation_time_ms": 0.3551,
+      "median_total_estimated_cost": 115.5,
+      "valid_result_rate": 1.0,
+      "success_rate": 1.0
+    }
+  ],
+  "cp_sat_vs_greedy": {
+    "scenarios_compared_same_cardinality": 5,
+    "scenarios_cp_sat_assigned_more_tasks": 1,
+    "scenarios_greedy_assigned_more_tasks": 0,
+    "cp_sat_strictly_cheaper": 5,
+    "equal_cost": 0,
+    "cp_sat_worse": 0,
+    "total_cost_greedy_same_cardinality": 784,
+    "total_cost_cp_sat_same_cardinality": 665,
+    "cp_sat_cost_improvement_pct": 15.1786,
+    "median_per_scenario_improvement_pct": 14.7887
+  },
+  "execution_slice": {
+    "scenarios": 6,
+    "assignments_executed": 35,
+    "routes_reached_pickup": 29,
+    "route_execution_success_rate": 0.8286,
+    "total_planned_steps": 319,
+    "total_executed_steps": 286,
+    "planned_vs_executed_step_ratio": 0.8966,
+    "total_distance_travelled": 286.0,
+    "total_battery_consumed": 286.0
+  }
+}

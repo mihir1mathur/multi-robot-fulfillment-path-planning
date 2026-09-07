@@ -1,0 +1,128 @@
+name: CI
+
+# Continuous Integration:
+#   git push / pull_request
+#        |
+#        v
+#   GitHub Actions
+#        +--> set up Python 3.11
+#        +--> install dependencies
+#        +--> start a PostgreSQL 18 service container
+#        +--> wait for PostgreSQL to be ready
+#        +--> alembic upgrade head   (against the CI PostgreSQL)
+#        +--> alembic check          (migration matches the models)
+#        +--> pytest                 (unit + API + real-PostgreSQL integration)
+#        +--> import / app-startup smoke check
+#        v
+#   PASS / FAIL
+#
+# A separate job validates that the Docker image BUILDS (Continuous Delivery in
+# this project = deployable-artifact validation; there is no deployment target
+# and nothing is pushed to a registry).
+#
+# Benchmark latency is NOT a CI gate - runtime depends on shared-runner load.
+# Only deterministic logical results are checked (inside pytest).
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: tests + real PostgreSQL
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:18-alpine
+        env:
+          POSTGRES_USER: fulfillment
+          POSTGRES_PASSWORD: ci-not-a-secret
+          POSTGRES_DB: fulfillment
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U fulfillment -d fulfillment"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+
+    env:
+      # CI-only credentials for a throwaway container. Not a real secret.
+      DATABASE_URL: postgresql+psycopg://fulfillment:ci-not-a-secret@localhost:5432/fulfillment
+      TEST_DATABASE_URL: postgresql+psycopg://fulfillment:ci-not-a-secret@localhost:5432/fulfillment
+      JWT_SECRET_KEY: ci-only-signing-key-not-a-secret-min-32-bytes
+      AUTO_CREATE_TABLES: "false"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Wait for PostgreSQL
+        run: |
+          python - <<'PY'
+          import time, psycopg
+          for attempt in range(30):
+              try:
+                  with psycopg.connect("host=localhost port=5432 user=fulfillment password=ci-not-a-secret dbname=fulfillment", connect_timeout=3):
+                      print("postgres is up")
+                      break
+              except Exception as exc:
+                  print(f"waiting for postgres ({attempt}): {exc}")
+                  time.sleep(2)
+          else:
+              raise SystemExit("postgres did not become ready")
+          PY
+
+      - name: Apply migrations (alembic upgrade head)
+        run: alembic upgrade head
+
+      - name: Migration matches the models (alembic check)
+        run: alembic check
+
+      - name: Show current migration head
+        run: alembic current
+
+      - name: Run the full test suite (unit + API + PostgreSQL integration)
+        run: python -m pytest -q --maxfail=1
+
+      - name: App import / startup smoke check
+        run: |
+          python -c "import robotics.api, robotics.services, robotics.persistence; print('imports OK')"
+          python -c "from robotics.api.app import create_app; app = create_app(create_tables=False); print('app has', len(app.routes), 'routes')"
+
+  docker-build:
+    name: Docker image build validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build the application image (no push)
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: false
+          load: true
+          tags: fulfillment-api:ci
+
+      - name: Smoke-check the built image starts
+        run: |
+          docker run --rm --entrypoint python fulfillment-api:ci -c \
+            "from robotics.api.app import create_app; print('image import OK')"

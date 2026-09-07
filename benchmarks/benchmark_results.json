@@ -1,0 +1,376 @@
+{
+  "config": {
+    "grid_sizes": [
+      20,
+      40,
+      60
+    ],
+    "obstacle_densities": [
+      0.05,
+      0.15,
+      0.25
+    ],
+    "scenarios_per_config": 12,
+    "timing_repeats": 7,
+    "master_seed": 20240517,
+    "timer": "time.perf_counter_ns",
+    "note": "Small-grid planning times are sub-millisecond and dominated by interpreter noise; larger grids show a real gap. nodes_expanded and path_cost are exact and reproducible at every size."
+  },
+  "total_runs": 24,
+  "raw_runs": [
+    {
+      "algorithm": "dijkstra",
+      "scenario_id": "20x20-d0.1-s00",
+      "grid_size": 20,
+      "obstacle_density": 0.1,
+      "obstacle_count": 50,
+      "success": true,
+      "path_cost": 26.0,
+      "nodes_expanded": 333,
+      "planning_time_ms": 4.1407
+    },
+    {
+      "algorithm": "astar",
+      "scenario_id": "20x20-d0.1-s00",
+      "grid_size": 20,
+      "obstacle_density": 0.1,
+      "obstacle_count": 50,
+      "success": true,
+      "path_cost": 26.0,
+      "nodes_expanded": 35,
+      "planning_time_ms": 0.5021
+    },
+    {
+      "algorithm": "dijkstra",
+      "scenario_id": "20x20-d0.1-s01",
+      "grid_size": 20,
+      "obstacle_density": 0.1,
+      "obstacle_count": 39,
+      "success": true,
+      "path_cost": 24.0,
+      "nodes_expanded": 353,
+      "planning_time_ms": 4.29985
+    },
+    {
+      "algorithm": "astar",
+      "scenario_id": "20x20-d0.1-s01",
+      "grid_size": 20,
+      "obstacle_density": 0.1,
+      "obstacle_count": 39,
+      "success": true,
+      "path_cost": 24.0,
+      "nodes_expanded": 25,
+      "planning_time_ms": 0.36225
+    },
+    {
+      "algorithm": "dijkstra",
+      "scenario_id": "20x20-d0.1-s02",
+      "grid_size": 20,
+      "obstacle_density": 0.1,
+      "obstacle_count": 44,
+      "success": true,
+      "path_cost": 24.0,
+      "nodes_expanded": 310,
+      "planning_time_ms": 3.7857
+    },
+    {
+      "algorithm": "astar",
+      "scenario_id": "20x20-d0.1-s02",
+      "grid_size": 20,
+      "obstacle_density": 0.1,
+      "obstacle_count": 44,
+      "success": true,
+      "path_cost": 24.0,
+      "nodes_expanded": 46,
+      "planning_time_ms": 0.63085
+    },
+    {
+      "algorithm": "dijkstra",
+      "scenario_id": "20x20-d0.2-s00",
+      "grid_size": 20,
+      "obstacle_density": 0.2,
+      "obstacle_count": 89,
+      "success": true,
+      "path_cost": 30.0,
+      "nodes_expanded": 303,
+      "planning_time_ms": 3.5626
+    },
+    {
+      "algorithm": "astar",
+      "scenario_id": "20x20-d0.2-s00",
+      "grid_size": 20,
+      "obstacle_density": 0.2,
+      "obstacle_count": 89,
+      "success": true,
+      "path_cost": 30.0,
+      "nodes_expanded": 77,
+      "planning_time_ms": 1.0087
+    },
+    {
+      "algorithm": "dijkstra",
+      "scenario_id": "20x20-d0.2-s01",
+      "grid_size": 20,
+      "obstacle_density": 0.2,
+      "obstacle_count": 77,
+      "success": true,
+      "path_cost": 28.0,
+      "nodes_expanded": 312,
+      "planning_time_ms": 3.6663
+    },
+    {
+      "algorithm": "astar",
+      "scenario_id": "20x20-d0.2-s01",
+      "grid_size": 20,
+      "obstacle_density": 0.2,
+      "obstacle_count": 77,
+      "success": true,
+      "path_cost": 28.0,
+      "nodes_expanded": 52,
+      "planning_time_ms": 0.6699
+    },
+    {
+      "algorithm": "dijkstra",
+      "scenario_id": "20x20-d0.2-s02",
+      "grid_size": 20,
+      "obstacle_density": 0.2,
+      "obstacle_count": 74,
+      "success": true,
+      "path_cost": 30.0,
+      "nodes_expanded": 320,
+      "planning_time_ms": 5.30485
+    },
+    {
+      "algorithm": "astar",
+      "scenario_id": "20x20-d0.2-s02",
+      "grid_size": 20,
+      "obstacle_density": 0.2,
+      "obstacle_count": 74,
+      "success": true,
+      "path_cost": 30.0,
+      "nodes_expanded": 61,
+      "planning_time_ms": 0.81385
+    },
+    {
+      "algorithm": "dijkstra",
+      "scenario_id": "30x30-d0.1-s00",
+      "grid_size": 30,
+      "obstacle_density": 0.1,
+      "obstacle_count": 75,
+      "success": true,
+      "path_cost": 47.0,
+      "nodes_expanded": 805,
+      "planning_time_ms": 10.02675
+    },
+    {
+      "algorithm": "astar",
+      "scenario_id": "30x30-d0.1-s00",
+      "grid_size": 30,
+      "obstacle_density": 0.1,
+      "obstacle_count": 75,
+      "success": true,
+      "path_cost": 47.0,
+      "nodes_expanded": 72,
+      "planning_time_ms": 1.04255
+    },
+    {
+      "algorithm": "dijkstra",
+      "scenario_id": "30x30-d0.1-s01",
+      "grid_size": 30,
+      "obstacle_density": 0.1,
+      "obstacle_count": 83,
+      "success": true,
+      "path_cost": 47.0,
+      "nodes_expanded": 795,
+      "planning_time_ms": 10.1788
+    },
+    {
+      "algorithm": "astar",
+      "scenario_id": "30x30-d0.1-s01",
+      "grid_size": 30,
+      "obstacle_density": 0.1,
+      "obstacle_count": 83,
+      "success": true,
+      "path_cost": 47.0,
+      "nodes_expanded": 91,
+      "planning_time_ms": 1.31825
+    },
+    {
+      "algorithm": "dijkstra",
+      "scenario_id": "30x30-d0.1-s02",
+      "grid_size": 30,
+      "obstacle_density": 0.1,
+      "obstacle_count": 80,
+      "success": true,
+      "path_cost": 45.0,
+      "nodes_expanded": 775,
+      "planning_time_ms": 9.51215
+    },
+    {
+      "algorithm": "astar",
+      "scenario_id": "30x30-d0.1-s02",
+      "grid_size": 30,
+      "obstacle_density": 0.1,
+      "obstacle_count": 80,
+      "success": true,
+      "path_cost": 45.0,
+      "nodes_expanded": 55,
+      "planning_time_ms": 0.7822
+    },
+    {
+      "algorithm": "dijkstra",
+      "scenario_id": "30x30-d0.2-s00",
+      "grid_size": 30,
+      "obstacle_density": 0.2,
+      "obstacle_count": 185,
+      "success": true,
+      "path_cost": 47.0,
+      "nodes_expanded": 704,
+      "planning_time_ms": 8.45
+    },
+    {
+      "algorithm": "astar",
+      "scenario_id": "30x30-d0.2-s00",
+      "grid_size": 30,
+      "obstacle_density": 0.2,
+      "obstacle_count": 185,
+      "success": true,
+      "path_cost": 47.0,
+      "nodes_expanded": 54,
+      "planning_time_ms": 0.73325
+    },
+    {
+      "algorithm": "dijkstra",
+      "scenario_id": "30x30-d0.2-s01",
+      "grid_size": 30,
+      "obstacle_density": 0.2,
+      "obstacle_count": 181,
+      "success": true,
+      "path_cost": 46.0,
+      "nodes_expanded": 714,
+      "planning_time_ms": 8.66595
+    },
+    {
+      "algorithm": "astar",
+      "scenario_id": "30x30-d0.2-s01",
+      "grid_size": 30,
+      "obstacle_density": 0.2,
+      "obstacle_count": 181,
+      "success": true,
+      "path_cost": 46.0,
+      "nodes_expanded": 73,
+      "planning_time_ms": 1.4279
+    },
+    {
+      "algorithm": "dijkstra",
+      "scenario_id": "30x30-d0.2-s02",
+      "grid_size": 30,
+      "obstacle_density": 0.2,
+      "obstacle_count": 174,
+      "success": true,
+      "path_cost": 51.0,
+      "nodes_expanded": 717,
+      "planning_time_ms": 9.1369
+    },
+    {
+      "algorithm": "astar",
+      "scenario_id": "30x30-d0.2-s02",
+      "grid_size": 30,
+      "obstacle_density": 0.2,
+      "obstacle_count": 174,
+      "success": true,
+      "path_cost": 51.0,
+      "nodes_expanded": 86,
+      "planning_time_ms": 1.19135
+    }
+  ],
+  "aggregates": [
+    {
+      "algorithm": "astar",
+      "grid_size": 20,
+      "obstacle_density": 0.1,
+      "scenarios": 3,
+      "success_rate": 1.0,
+      "median_planning_time_ms": 0.5021,
+      "p95_planning_time_ms": 0.63085,
+      "median_nodes_expanded": 35
+    },
+    {
+      "algorithm": "astar",
+      "grid_size": 20,
+      "obstacle_density": 0.2,
+      "scenarios": 3,
+      "success_rate": 1.0,
+      "median_planning_time_ms": 0.81385,
+      "p95_planning_time_ms": 1.0087,
+      "median_nodes_expanded": 61
+    },
+    {
+      "algorithm": "astar",
+      "grid_size": 30,
+      "obstacle_density": 0.1,
+      "scenarios": 3,
+      "success_rate": 1.0,
+      "median_planning_time_ms": 1.04255,
+      "p95_planning_time_ms": 1.31825,
+      "median_nodes_expanded": 72
+    },
+    {
+      "algorithm": "astar",
+      "grid_size": 30,
+      "obstacle_density": 0.2,
+      "scenarios": 3,
+      "success_rate": 1.0,
+      "median_planning_time_ms": 1.19135,
+      "p95_planning_time_ms": 1.4279,
+      "median_nodes_expanded": 73
+    },
+    {
+      "algorithm": "dijkstra",
+      "grid_size": 20,
+      "obstacle_density": 0.1,
+      "scenarios": 3,
+      "success_rate": 1.0,
+      "median_planning_time_ms": 4.1407,
+      "p95_planning_time_ms": 4.29985,
+      "median_nodes_expanded": 333
+    },
+    {
+      "algorithm": "dijkstra",
+      "grid_size": 20,
+      "obstacle_density": 0.2,
+      "scenarios": 3,
+      "success_rate": 1.0,
+      "median_planning_time_ms": 3.6663,
+      "p95_planning_time_ms": 5.30485,
+      "median_nodes_expanded": 312
+    },
+    {
+      "algorithm": "dijkstra",
+      "grid_size": 30,
+      "obstacle_density": 0.1,
+      "scenarios": 3,
+      "success_rate": 1.0,
+      "median_planning_time_ms": 10.02675,
+      "p95_planning_time_ms": 10.1788,
+      "median_nodes_expanded": 795
+    },
+    {
+      "algorithm": "dijkstra",
+      "grid_size": 30,
+      "obstacle_density": 0.2,
+      "scenarios": 3,
+      "success_rate": 1.0,
+      "median_planning_time_ms": 8.66595,
+      "p95_planning_time_ms": 9.1369,
+      "median_nodes_expanded": 714
+    }
+  ],
+  "head_to_head": {
+    "scenarios_both_succeeded": 12,
+    "astar_expanded_fewer_nodes": 12,
+    "astar_expanded_equal_nodes": 0,
+    "astar_expanded_more_nodes": 0,
+    "median_astar_to_dijkstra_node_ratio": 0.1098,
+    "optimal_cost_agreement_rate": 1.0
+  }
+}

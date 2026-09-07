@@ -1,0 +1,59 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+build/
+dist/
+
+# Test and tooling caches
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Alembic generates __pycache__ under versions/; the migration scripts
+# themselves ARE committed.
+alembic/versions/__pycache__/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Environment files (never commit secrets). .env.example IS committed.
+.env
+.env.*
+!.env.example
+
+# Local database artifacts (the SQLite dev/test databases)
+*.db
+*.sqlite
+*.sqlite3
+
+# Editors and IDEs
+.vscode/
+.idea/
+*.swp
+*~
+
+# Local tooling config (per-user, never shared)
+.claude/settings.local.json
+
+# OS noise
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Personal study material - kept out of the public repository on purpose.
+# These notes are learning and revision material, not project documentation.
+notes/
+
+# Private development-plan / prompt documents - never part of the public repo.
+*Prompt.txt
+
+# Local screenshot source folder. The published copies live in docs/images/.
+Final Screenshots/

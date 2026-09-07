@@ -1,0 +1,52 @@
+# Local reproducible stack: the API + a PostgreSQL database.
+#
+#   cp .env.example .env      # then set JWT_SECRET_KEY (and change POSTGRES_PASSWORD)
+#   docker compose up --build
+#   curl http://localhost:8000/health
+#   curl http://localhost:8000/ready
+#
+# The api container waits for the db healthcheck, runs `alembic upgrade head`
+# (via docker/entrypoint.sh), then starts uvicorn. No secret is committed:
+# POSTGRES_PASSWORD and JWT_SECRET_KEY come from the environment / .env.
+
+services:
+  db:
+    image: postgres:18-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-fulfillment}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-fulfillment}
+      POSTGRES_DB: ${POSTGRES_DB:-fulfillment}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - fulfillment_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-fulfillment} -d ${POSTGRES_DB:-fulfillment}"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-fulfillment}:${POSTGRES_PASSWORD:-fulfillment}@db:5432/${POSTGRES_DB:-fulfillment}
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY:?set JWT_SECRET_KEY in .env}
+      AUTO_CREATE_TABLES: "false"
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+      BOOTSTRAP_ADMIN_USERNAME: ${BOOTSTRAP_ADMIN_USERNAME:-}
+      BOOTSTRAP_ADMIN_PASSWORD: ${BOOTSTRAP_ADMIN_PASSWORD:-}
+    ports:
+      - "${API_PORT:-8000}:8000"
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://localhost:8000/health').status==200 else 1)\""]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  fulfillment_pgdata:

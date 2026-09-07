@@ -1,0 +1,727 @@
+{
+  "environment": {
+    "evaluation_version": "1.0.0",
+    "timestamp_utc": "2026-09-07T05:19:18+00:00",
+    "python_version": "3.11.9",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "database_dialect_configured": "postgresql",
+    "service_concurrency_backend_requested": "postgres",
+    "service_concurrency_backend_effective": "postgres",
+    "note": "Logical metrics (nodes expanded, path cost, conflict counts, success rates, integrity/determinism booleans) are deterministic and reproduce on any machine from the fixed seeds. All latency and throughput figures are in-process, machine-dependent, and are NOT production performance claims."
+  },
+  "quick_mode": false,
+  "families": {
+    "path_planning": {
+      "title": "A* vs Dijkstra path planning",
+      "config": {
+        "grid_sizes": [
+          20,
+          40,
+          60
+        ],
+        "obstacle_densities": [
+          0.05,
+          0.15,
+          0.25
+        ],
+        "scenarios_per_config": 12,
+        "timing_repeats": 7,
+        "master_seed": 20240517,
+        "timer": "time.perf_counter_ns",
+        "note": "Small-grid planning times are sub-millisecond and dominated by interpreter noise; larger grids show a real gap. nodes_expanded and path_cost are exact and reproducible at every size."
+      },
+      "headline": {
+        "scenarios": 108,
+        "scenarios_both_succeeded": 106,
+        "astar_successful_paths": 106,
+        "dijkstra_successful_paths": 106,
+        "astar_expanded_fewer_nodes": 106,
+        "astar_expanded_equal_nodes": 0,
+        "astar_expanded_more_nodes": 0,
+        "total_dijkstra_nodes_expanded": 160820,
+        "total_astar_nodes_expanded": 15072,
+        "aggregate_node_expansion_reduction": 0.9063,
+        "median_astar_to_dijkstra_node_ratio": 0.0921,
+        "optimal_cost_agreement_rate": 1.0,
+        "planning_latency_by_group_ms": [
+          {
+            "algorithm": "astar",
+            "grid_size": 20,
+            "obstacle_density": 0.05,
+            "median_ms": 0.4918,
+            "p95_ms": 0.6274
+          },
+          {
+            "algorithm": "astar",
+            "grid_size": 20,
+            "obstacle_density": 0.15,
+            "median_ms": 0.53795,
+            "p95_ms": 2.0866
+          },
+          {
+            "algorithm": "astar",
+            "grid_size": 20,
+            "obstacle_density": 0.25,
+            "median_ms": 0.56265,
+            "p95_ms": 1.6192
+          },
+          {
+            "algorithm": "astar",
+            "grid_size": 40,
+            "obstacle_density": 0.05,
+            "median_ms": 0.91285,
+            "p95_ms": 1.2705
+          },
+          {
+            "algorithm": "astar",
+            "grid_size": 40,
+            "obstacle_density": 0.15,
+            "median_ms": 1.6308,
+            "p95_ms": 2.3387
+          },
+          {
+            "algorithm": "astar",
+            "grid_size": 40,
+            "obstacle_density": 0.25,
+            "median_ms": 1.6952,
+            "p95_ms": 3.8702
+          },
+          {
+            "algorithm": "astar",
+            "grid_size": 60,
+            "obstacle_density": 0.05,
+            "median_ms": 1.60445,
+            "p95_ms": 3.2266
+          },
+          {
+            "algorithm": "astar",
+            "grid_size": 60,
+            "obstacle_density": 0.15,
+            "median_ms": 3.2901,
+            "p95_ms": 5.4773
+          },
+          {
+            "algorithm": "astar",
+            "grid_size": 60,
+            "obstacle_density": 0.25,
+            "median_ms": 4.6175,
+            "p95_ms": 9.4261
+          },
+          {
+            "algorithm": "dijkstra",
+            "grid_size": 20,
+            "obstacle_density": 0.05,
+            "median_ms": 4.49845,
+            "p95_ms": 4.71
+          },
+          {
+            "algorithm": "dijkstra",
+            "grid_size": 20,
+            "obstacle_density": 0.15,
+            "median_ms": 4.01155,
+            "p95_ms": 4.1331
+          },
+          {
+            "algorithm": "dijkstra",
+            "grid_size": 20,
+            "obstacle_density": 0.25,
+            "median_ms": 3.22645,
+            "p95_ms": 3.5486
+          },
+          {
+            "algorithm": "dijkstra",
+            "grid_size": 40,
+            "obstacle_density": 0.05,
+            "median_ms": 18.46275,
+            "p95_ms": 19.1476
+          },
+          {
+            "algorithm": "dijkstra",
+            "grid_size": 40,
+            "obstacle_density": 0.15,
+            "median_ms": 15.7894,
+            "p95_ms": 16.4986
+          },
+          {
+            "algorithm": "dijkstra",
+            "grid_size": 40,
+            "obstacle_density": 0.25,
+            "median_ms": 13.22215,
+            "p95_ms": 14.0796
+          },
+          {
+            "algorithm": "dijkstra",
+            "grid_size": 60,
+            "obstacle_density": 0.05,
+            "median_ms": 41.7571,
+            "p95_ms": 42.9618
+          },
+          {
+            "algorithm": "dijkstra",
+            "grid_size": 60,
+            "obstacle_density": 0.15,
+            "median_ms": 37.965,
+            "p95_ms": 76.4976
+          },
+          {
+            "algorithm": "dijkstra",
+            "grid_size": 60,
+            "obstacle_density": 0.25,
+            "median_ms": 31.1568,
+            "p95_ms": 33.1354
+          }
+        ]
+      },
+      "metric_definitions": {
+        "aggregate_node_expansion_reduction": "(sum of Dijkstra nodes_expanded - sum of A* nodes_expanded) / sum of Dijkstra nodes_expanded, over the scenarios where BOTH planners returned a path. A cell is counted once, when it is popped as the best non-stale queue entry.",
+        "optimal_cost_agreement_rate": "fraction of scenarios solved by both planners where the two path costs were exactly equal. Dijkstra is optimal on a non-negative grid, so agreement means A* also returned an optimal-cost path.",
+        "planning_latency_by_group_ms": "median / P95 wall-clock time per (algorithm, grid, density) group, median of TIMING_REPEATS runs. MACHINE-DEPENDENT - indicative only."
+      },
+      "limitations": [
+        "Single-robot planning on a static grid; no dynamic obstacles here.",
+        "Small-grid latencies are sub-millisecond and dominated by interpreter noise; nodes_expanded is the stable signal.",
+        "4-connected grid, unit step cost."
+      ]
+    },
+    "task_allocation": {
+      "title": "Greedy vs CP-SAT task allocation",
+      "config": {
+        "grid_size": 24,
+        "obstacle_density": 0.08,
+        "fleet_task_configs": [
+          [
+            5,
+            5
+          ],
+          [
+            5,
+            10
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            10,
+            20
+          ],
+          [
+            20,
+            20
+          ]
+        ],
+        "scenarios_per_config": 8,
+        "timing_repeats": 7,
+        "master_seed": 8675309,
+        "timer": "time.perf_counter_ns",
+        "note": "Path-cost preprocessing is done once per scenario and excluded from the per-allocator timing. Cost comparison is restricted to scenarios where both allocators assigned the same number of tasks."
+      },
+      "headline": {
+        "scenarios": 40,
+        "cp_sat_assignment_rate": 0.6615,
+        "greedy_assignment_rate": 0.6442,
+        "cp_sat_valid_result_rate": 1.0,
+        "cp_sat_median_solver_ms": 6.35545,
+        "greedy_median_solver_ms": 0.32825,
+        "same_cardinality_scenarios": 32,
+        "cp_sat_strictly_cheaper": 31,
+        "cp_sat_worse": 0,
+        "total_cost_greedy_same_cardinality": 6454,
+        "total_cost_cp_sat_same_cardinality": 4973,
+        "cp_sat_cost_improvement_pct": 22.947,
+        "median_per_scenario_cost_improvement_pct": 21.7734,
+        "execution_slice_pickup_reach_rate": 0.9244,
+        "execution_slice_assignments": 344,
+        "execution_slice_reached_pickup": 318
+      },
+      "metric_definitions": {
+        "cp_sat_cost_improvement_pct": "100 * (greedy total travel cost - CP-SAT total travel cost) / greedy total travel cost, summed ONLY over scenarios where the two allocators assigned the SAME number of tasks. 'cost' = the shared CostEstimator's robot->pickup + pickup->dropoff A* path length. Assigning fewer tasks for a lower cost is not counted as a win.",
+        "assignment_rate": "assigned tasks / total tasks offered, over all scenarios.",
+        "execution_slice_pickup_reach_rate": "of the CP-SAT assignments, the fraction whose planned route was actually driven to the pickup cell by the RouteExecutor (some assignments target a pickup that the robot cannot reach given the layout)."
+      },
+      "limitations": [
+        "CP-SAT objective minimises total estimated travel; it does not model congestion, battery, or task deadlines.",
+        "The greedy baseline is an existing implemented nearest-feasible assignor, not a deliberately weak strawman.",
+        "Improvement is measured on same-cardinality scenarios only."
+      ]
+    },
+    "multi_robot_coordination": {
+      "title": "Independent vs coordinated fleet execution",
+      "config": {
+        "scenario_types": [
+          "open",
+          "intersection",
+          "corridor",
+          "bottleneck",
+          "obstacle_rich",
+          "mixed"
+        ],
+        "fleet_sizes": [
+          2,
+          5,
+          10,
+          20
+        ],
+        "scenarios_per_config": 5,
+        "timing_repeats": 3,
+        "master_seed": 424242,
+        "timer": "time.perf_counter_ns",
+        "note": "Prioritized planning is not globally optimal; on tight scenarios some robots cannot be placed and that is reported, not hidden. 'conflict-free' means 0 unresolved vertex/edge conflicts across the validated runs."
+      },
+      "headline": {
+        "scenarios": 118,
+        "fleet_sizes": [
+          2,
+          5,
+          10,
+          20
+        ],
+        "planning_success_rate": 0.8644,
+        "coordinated_execution_success_rate": 1.0,
+        "conflict_free_validation_rate": 1.0,
+        "naive_vertex_conflicts_faced": 610,
+        "naive_edge_conflicts_faced": 139,
+        "total_conflicts_coordination_faced": 749,
+        "unresolved_execution_conflicts": 0,
+        "conflict_reduction_vs_independent": 1.0,
+        "independent_all_reached_goal_rate": 0.3475,
+        "coordinated_all_reached_goal_rate": 0.8644,
+        "absolute_improvement_pct_points": 51.69,
+        "largest_fully_validated_fleet": 20,
+        "median_wait_steps": 0.0,
+        "p50_planning_latency_ms": 5.2204,
+        "p95_planning_latency_ms": 103.7104
+      },
+      "metric_definitions": {
+        "total_conflicts_coordination_faced": "vertex + edge/swap conflicts that WOULD occur if every robot followed its independent A* route simultaneously - the conflicts the coordinator had to design around.",
+        "conflict_reduction_vs_independent": "(independent conflicts - coordinated unresolved conflicts) / independent conflicts. Coordinated runs leave 0 unresolved vertex/edge conflicts across the validated simulated scenarios, so this is 1.0 - reported strictly for the simulated conflict model, NOT a physical collision guarantee.",
+        "absolute_improvement_pct_points": "coordinated 'every robot reached its goal' rate minus the independent (sequential) rate, in percentage points, same scenarios.",
+        "planning_success_rate": "fraction of robots successfully placed by prioritized planning; < 1.0 because prioritized planning is not complete on tight two-way scenarios."
+      },
+      "limitations": [
+        "Prioritized planning is not complete or globally optimal MAPF; some robots in dense corridor/bottleneck scenarios cannot be placed.",
+        "'conflict-free' = 0 unresolved vertex/edge conflicts in the simulated runs; not a real-world safety guarantee.",
+        "Simulation only - synchronous unit-time steps, no kinematics."
+      ]
+    },
+    "dynamic_replanning": {
+      "title": "Dynamic-obstacle replanning",
+      "config": {
+        "grid_sizes": [
+          8,
+          12,
+          16
+        ],
+        "obstacle_densities": [
+          0.0,
+          0.08
+        ],
+        "fleet_sizes": [
+          2,
+          4,
+          6
+        ],
+        "scenarios_per_config": 4,
+        "master_seed": 90210,
+        "timer": "time.perf_counter_ns",
+        "note": "Some scenarios are structurally unrecoverable (blocked corridor, no spare robot) and are included as safe stops, not deleted. 'recovery success' = affected robots reached their goals (or the task was reassigned and its replacement did) with 0 unresolved conflicts."
+      },
+      "headline": {
+        "disruption_scenarios": 47,
+        "replanning_attempts": 45,
+        "replanning_success_rate": 0.7333,
+        "recovery_success_rate": 0.7447,
+        "safe_stop_rate": 0.2553,
+        "median_additional_distance": 2,
+        "median_replanning_latency_ms": 0.6182,
+        "p95_replanning_latency_ms": 2.237,
+        "unresolved_vertex_conflicts": 0,
+        "unresolved_edge_conflicts": 0,
+        "obstacle_before_vs_after": {
+          "scenarios": 47,
+          "mean_goal_completion_without_recovery": 0.6046,
+          "mean_goal_completion_with_recovery": 0.8475,
+          "absolute_improvement_pct_points": 24.29
+        }
+      },
+      "metric_definitions": {
+        "replanning_success_rate": "successful replans / replanning attempts. A replan is attempted when a new obstacle lands on a robot's remaining route; it succeeds when a conflict-free alternate timed path is found.",
+        "recovery_success_rate": "scenarios where every affected robot reached its goal with 0 unresolved conflicts / all obstacle scenarios (INCLUDING the structurally unrecoverable ones - a walled one-cell corridor).",
+        "safe_stop_rate": "1 - recovery_success_rate for this disruption family."
+      },
+      "limitations": [
+        "planning success != execution success != recovery success - reported separately, never merged into one number.",
+        "Structurally unrecoverable obstacle scenarios are included and counted as safe stops.",
+        "Replanning is local (from the robot's current cell); it does not re-solve the whole fleet unless re-coordination is triggered."
+      ]
+    },
+    "failure_recovery": {
+      "title": "Robot-failure recovery",
+      "config": {
+        "grid_sizes": [
+          8,
+          12,
+          16
+        ],
+        "obstacle_densities": [
+          0.0,
+          0.08
+        ],
+        "fleet_sizes": [
+          2,
+          4,
+          6
+        ],
+        "scenarios_per_config": 4,
+        "master_seed": 90210,
+        "timer": "time.perf_counter_ns",
+        "note": "Some scenarios are structurally unrecoverable (blocked corridor, no spare robot) and are included as safe stops, not deleted. 'recovery success' = affected robots reached their goals (or the task was reassigned and its replacement did) with 0 unresolved conflicts."
+      },
+      "headline": {
+        "total_failure_scenarios": 71,
+        "spare_robot_available_scenarios": 35,
+        "intentionally_unrecoverable_scenarios": 36,
+        "overall_recovery_success_rate": 0.5932,
+        "failure_only_recovery_success_rate": 0.493,
+        "recoverable_subset_scenarios": 70,
+        "recoverable_subset_goal_completion_with_recovery": 0.9976,
+        "recoverable_subset_goal_completion_without_recovery": 0.8345,
+        "recoverable_subset_absolute_improvement_pct_points": 16.31,
+        "task_reassignment_attempts": 71,
+        "task_reassignment_success_rate": 0.493,
+        "task_recovered_when_spare_available": 35,
+        "safe_stop_rate": 0.507,
+        "unresolved_vertex_conflicts": 0,
+        "unresolved_edge_conflicts": 0,
+        "duplicate_task_completions": 0,
+        "all_scenarios_before_vs_after": {
+          "scenarios": 118,
+          "mean_goal_completion_without_recovery": 0.8335,
+          "mean_goal_completion_with_recovery": 0.9376,
+          "absolute_improvement_pct_points": 10.41
+        }
+      },
+      "metric_definitions": {
+        "overall_recovery_success_rate": "recovered scenarios / ALL disruption scenarios (obstacle + failure, recoverable + structurally unrecoverable). This is the conservative headline and is LOWER than the recoverable subset.",
+        "recoverable_subset_scenarios": "scenarios where a structural remedy existed (an alternate route for an obstacle, OR a spare compatible robot for a failure). Denominator for the recoverable-subset rate - any headline use of that rate must state this denominator explicitly.",
+        "recoverable_subset_absolute_improvement_pct_points": "mean goal-completion WITH recovery minus WITHOUT recovery, in percentage points, on the recoverable subset only, same scenarios.",
+        "task_reassignment_success_rate": "failure scenarios where the orphaned task was reassigned to another robot that then completed it / failure scenarios where reassignment was attempted.",
+        "duplicate_task_completions": "count of tasks marked completed more than once after a reassignment race - must be 0."
+      },
+      "limitations": [
+        "The overall rate mixes in scenarios that are structurally unrecoverable by design; quote the denominator when using either rate.",
+        "No partial-task handoff: a reassigned task restarts from its pickup.",
+        "A failure with no spare compatible robot is a safe stop, not a bug."
+      ]
+    },
+    "service_backend": {
+      "title": "FastAPI + database service layer",
+      "config": {
+        "backend": "postgresql ((18, 4))",
+        "requests_per_operation": 40,
+        "warmup_per_operation": 5,
+        "transport": "fastapi.testclient (in-process, authenticated as operator)",
+        "timer": "time.perf_counter",
+        "python": "3.11.9",
+        "platform": "Windows-10-10.0.19045-SP0",
+        "note": "Local in-process latency on the development machine. NOT production latency - no network hop, no concurrent load. Numbers swing with machine load; only success rate is deterministic.",
+        "requested_backend": "postgres"
+      },
+      "headline": {
+        "backend": "postgresql ((18, 4))",
+        "transport": "fastapi.testclient (in-process, authenticated as operator)",
+        "total_requests": 360,
+        "overall_success_rate": 1.0,
+        "bare_select1_median_ms": 0.9568,
+        "operations": [
+          {
+            "operation": "robot_create",
+            "requests": 40,
+            "success_rate": 1.0,
+            "p50_latency_ms": 10.6494,
+            "p95_latency_ms": 14.3043,
+            "max_latency_ms": 16.5815
+          },
+          {
+            "operation": "robot_read",
+            "requests": 40,
+            "success_rate": 1.0,
+            "p50_latency_ms": 10.1566,
+            "p95_latency_ms": 12.4021,
+            "max_latency_ms": 14.6955
+          },
+          {
+            "operation": "task_create",
+            "requests": 40,
+            "success_rate": 1.0,
+            "p50_latency_ms": 11.5548,
+            "p95_latency_ms": 13.5025,
+            "max_latency_ms": 16.4968
+          },
+          {
+            "operation": "task_read",
+            "requests": 40,
+            "success_rate": 1.0,
+            "p50_latency_ms": 11.4373,
+            "p95_latency_ms": 14.3893,
+            "max_latency_ms": 26.6352
+          },
+          {
+            "operation": "planning_path",
+            "requests": 40,
+            "success_rate": 1.0,
+            "p50_latency_ms": 11.144,
+            "p95_latency_ms": 13.5549,
+            "max_latency_ms": 13.744
+          },
+          {
+            "operation": "allocation_run",
+            "requests": 40,
+            "success_rate": 1.0,
+            "p50_latency_ms": 12.8814,
+            "p95_latency_ms": 16.573,
+            "max_latency_ms": 21.2908
+          },
+          {
+            "operation": "coordination_plan",
+            "requests": 40,
+            "success_rate": 1.0,
+            "p50_latency_ms": 12.7987,
+            "p95_latency_ms": 26.9585,
+            "max_latency_ms": 42.8126
+          },
+          {
+            "operation": "recovery_obstacle",
+            "requests": 40,
+            "success_rate": 1.0,
+            "p50_latency_ms": 14.95,
+            "p95_latency_ms": 17.5049,
+            "max_latency_ms": 20.4019
+          },
+          {
+            "operation": "recovery_robot_failure",
+            "requests": 40,
+            "success_rate": 1.0,
+            "p50_latency_ms": 11.1932,
+            "p95_latency_ms": 16.4077,
+            "max_latency_ms": 75.5814
+          }
+        ],
+        "direct_vs_service_overhead": [
+          {
+            "operation": "planning_path",
+            "direct_p50_ms": 0.4394,
+            "service_p50_ms": 11.144,
+            "absolute_overhead_ms": 10.7045,
+            "relative_overhead_x": 25.36
+          },
+          {
+            "operation": "allocation_run",
+            "direct_p50_ms": 1.6085,
+            "service_p50_ms": 12.8814,
+            "absolute_overhead_ms": 11.2729,
+            "relative_overhead_x": 8.01
+          },
+          {
+            "operation": "coordination_plan",
+            "direct_p50_ms": 1.0879,
+            "service_p50_ms": 12.7987,
+            "absolute_overhead_ms": 11.7108,
+            "relative_overhead_x": 11.76
+          }
+        ]
+      },
+      "metric_definitions": {
+        "overall_success_rate": "request-weighted fraction of API calls returning a 2xx across all measured operations. Deterministic.",
+        "p50_latency_ms / p95_latency_ms": "median / 95th-percentile total in-process latency per operation over REQUESTS_PER_OP calls after a warmup, timed with time.perf_counter. MACHINE-DEPENDENT, in-process (TestClient, no network) - NOT production latency.",
+        "direct_vs_service_overhead": "P50 of the same compute called directly (no HTTP/ORM) vs through the API; the ratio is the cost of the HTTP + validation + auth + ORM wrapper on the dev machine."
+      },
+      "limitations": [
+        "In-process TestClient, single-threaded, dev machine - not a load test.",
+        "Latency numbers are indicative and swing with machine load; only the success rate is deterministic.",
+        "Absolute ms values are not a production SLA."
+      ],
+      "backend": "postgresql ((18, 4))"
+    },
+    "concurrency_reliability": {
+      "title": "Concurrency and state integrity",
+      "config": {
+        "backend": "postgresql ((18, 4))",
+        "requested_backend": "postgres",
+        "concurrency_levels": [
+          1,
+          5,
+          10,
+          20
+        ],
+        "requests_per_level": 120,
+        "race_threads": 24,
+        "transport": "fastapi.testclient (in-process ASGI, thread pool of clients)",
+        "timer": "time.perf_counter",
+        "python": "3.11.9",
+        "platform": "Windows-10-10.0.19045-SP0",
+        "note": "IN-PROCESS concurrency check on the dev machine. NOT a load test, NOT production latency/throughput. Only the success counts and the integrity/determinism booleans are deterministic."
+      },
+      "headline": {
+        "backend": "postgresql ((18, 4))",
+        "concurrency_levels": [
+          1,
+          5,
+          10,
+          20
+        ],
+        "total_api_operations": 480,
+        "successful_api_operations": 480,
+        "failed_api_operations": 0,
+        "api_success_rate": 1.0,
+        "per_level": [
+          {
+            "concurrency": 1,
+            "requests": 120,
+            "successful": 120,
+            "failed": 0,
+            "throughput_req_per_s": 142.3,
+            "p50_latency_ms": 6.763,
+            "p95_latency_ms": 9.434
+          },
+          {
+            "concurrency": 5,
+            "requests": 120,
+            "successful": 120,
+            "failed": 0,
+            "throughput_req_per_s": 131.2,
+            "p50_latency_ms": 20.628,
+            "p95_latency_ms": 41.195
+          },
+          {
+            "concurrency": 10,
+            "requests": 120,
+            "successful": 120,
+            "failed": 0,
+            "throughput_req_per_s": 139.7,
+            "p50_latency_ms": 49.702,
+            "p95_latency_ms": 86.205
+          },
+          {
+            "concurrency": 20,
+            "requests": 120,
+            "successful": 120,
+            "failed": 0,
+            "throughput_req_per_s": 86.4,
+            "p50_latency_ms": 125.08,
+            "p95_latency_ms": 562.092
+          }
+        ],
+        "duplicate_create_race": {
+          "threads": 24,
+          "created_201": 1,
+          "conflict_409": 23,
+          "server_error_5xx": 0,
+          "rows_in_db": 1,
+          "integrity_held": true
+        },
+        "fleet_workload_determinism": {
+          "scenarios": 4,
+          "fleet_sizes": [
+            2,
+            5,
+            10,
+            20
+          ],
+          "results_identical_sequential_vs_concurrent": true
+        },
+        "integrity_violations": 0,
+        "duplicate_resource_violations": 0,
+        "invariant_violations": 0
+      },
+      "metric_definitions": {
+        "api_success_rate": "successful / total authenticated requests driven through the app by a thread pool at concurrency levels [1, 5, 10, 20]. Deterministic.",
+        "duplicate_create_race": "N threads POST the same robot id at once: exactly one 201, the rest a clean 409, no 5xx, exactly one row in the DB. Proves the 'exists?' check + unique constraint + 409 handler hold under interleaving.",
+        "fleet_workload_determinism": "the same coordination scenarios solved once sequentially and once through a thread pool must yield byte-for-byte identical results (paths, makespan, waits, conflicts).",
+        "integrity_violations / duplicate_resource_violations / invariant_violations": "counts of observed database-integrity breaches, duplicate unique resources, and violated domain invariants under concurrency - all must be 0."
+      },
+      "limitations": [
+        "IN-PROCESS ASGI via TestClient thread pool - not a network load test; throughput/latency are NOT production numbers.",
+        "SQLite serialises writers; concurrent-writer behaviour is only meaningful on the PostgreSQL backend.",
+        "Concurrency levels are 1-20 (semantically stable range), not 50+."
+      ],
+      "backend": "postgresql ((18, 4))"
+    }
+  },
+  "test_quality_evidence": {
+    "test_file_count": 60,
+    "test_files": [
+      "test_allocation.py",
+      "test_allocation_api.py",
+      "test_allocation_commit.py",
+      "test_allocation_validation.py",
+      "test_api_integration.py",
+      "test_api_resilience.py",
+      "test_astar.py",
+      "test_authentication.py",
+      "test_authorization.py",
+      "test_benchmark_allocation.py",
+      "test_benchmark_concurrency.py",
+      "test_benchmark_coordination.py",
+      "test_benchmark_planners.py",
+      "test_benchmark_recovery.py",
+      "test_benchmark_service.py",
+      "test_concurrent_api.py",
+      "test_conflict_validator.py",
+      "test_coordinated_execution.py",
+      "test_coordination_api.py",
+      "test_coordination_integration.py",
+      "test_cost_estimator.py",
+      "test_database_concurrency.py",
+      "test_dijkstra.py",
+      "test_disruption.py",
+      "test_dynamic_replanning.py",
+      "test_fault_recovery.py",
+      "test_final_evaluation.py",
+      "test_frontend_client.py",
+      "test_frontend_pg_smoke.py",
+      "test_grid.py",
+      "test_health_api.py",
+      "test_heuristics.py",
+      "test_idempotency.py",
+      "test_lifecycle.py",
+      "test_logging_security.py",
+      "test_migrations.py",
+      "test_multi_robot_coordinator.py",
+      "test_path_validation.py",
+      "test_persistence.py",
+      "test_planning_api.py",
+      "test_postgres_integration.py",
+      "test_recovery_api.py",
+      "test_recovery_manager.py",
+      "test_reservation_release.py",
+      "test_reservation_table.py",
+      "test_resilience.py",
+      "test_retry.py",
+      "test_robot.py",
+      "test_robot_api.py",
+      "test_route_executor.py",
+      "test_service_layer.py",
+      "test_simulator.py",
+      "test_space_time_planner.py",
+      "test_state_invariants.py",
+      "test_system_demo.py",
+      "test_task.py",
+      "test_task_api.py",
+      "test_timed_path.py",
+      "test_transactions.py",
+      "test_warehouse.py"
+    ],
+    "reproduce_command": "python -m pytest -q",
+    "postgres_integration_command": "python -m pytest -q tests/test_postgres_integration.py",
+    "note": "Run pytest for the authoritative pass/skip count. PostgreSQL integration tests run when TEST_DATABASE_URL points at a reachable PostgreSQL and are otherwise skipped."
+  },
+  "global_limitations": [
+    "Simulation only - no physical robots, no kinematics, synchronous unit-time steps.",
+    "No real-world collision guarantee; 'conflict-free' is defined against the simulated vertex/edge conflict model on the tested scenarios.",
+    "Prioritized multi-robot coordination is not complete or globally optimal MAPF; dense two-way corridor/bottleneck scenarios can leave robots unplaced.",
+    "No partial-task handoff and no battery-aware routing.",
+    "No cloud deployment target; Docker and hosted CI are configured but their execution is not verified from this environment.",
+    "All timing/throughput numbers are local, in-process, single-machine measurements - not production latency or production throughput."
+  ]
+}

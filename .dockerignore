@@ -1,0 +1,45 @@
+# Keep the build context (and the image) small and secret-free.
+
+# secrets / local config
+.env
+.env.*
+!.env.example
+
+# local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# version control & tooling
+.git
+.gitignore
+.github
+.claude
+
+# private material - never in an image
+notes/
+*Prompt.txt
+
+# tests, benchmarks and their artifacts are not needed to RUN the service
+tests/
+benchmarks/
+
+# python caches / build artifacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# editors / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# docs (not needed at runtime)
+README.md
