@@ -5,7 +5,7 @@
 A deterministic, fully simulated multi-robot warehouse-fulfillment system. It
 plans routes for a fleet of grid robots, allocates delivery tasks with a
 constraint solver, coordinates the fleet in space **and** time to avoid
-collisions, repairs plans when obstacles appear or robots fail mid-run, and
+collisions, updates plans when obstacles appear or robots fail mid-run, and
 exposes the whole pipeline over an authenticated REST API backed by PostgreSQL.
 A Streamlit dashboard drives the system end to end for demonstration.
 
@@ -16,12 +16,12 @@ configured).
 
 **At a glance**
 
-- A\* and Dijkstra grid path planning, implemented from first principles, with an independent path validator
+- A* and Dijkstra grid path planning, implemented from first principles, with an independent path validator
 - OR-Tools CP-SAT task allocation with a deterministic greedy baseline
 - Prioritized space-time fleet coordination: reservation table, WAIT insertion, conflict-free by construction
 - Dynamic-obstacle replanning and robot-failure recovery with task reassignment, or an honest safe stop
 - FastAPI service, SQLAlchemy/PostgreSQL persistence, Alembic migrations, JWT auth (viewer / operator / admin)
-- Structured JSON logging with per-request correlation ids; secrets never logged
+- Structured JSON logging with per-request correlation ids without data compromise
 - Reproducible benchmark suite with a consolidated evaluation report
 - GitHub Actions workflow: full test suite against a real PostgreSQL service container; container image build
 - Streamlit visualization dashboard (HTTP client only — contains no algorithm code)
