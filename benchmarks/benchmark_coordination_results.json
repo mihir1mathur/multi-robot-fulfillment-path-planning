@@ -28,8 +28,8 @@
     "median_wait_steps": 0,
     "p95_wait_steps": 1.0,
     "median_makespan": 7,
-    "p50_planning_latency_ms": 0.6818,
-    "p95_planning_latency_ms": 2.1901,
+    "p50_planning_latency_ms": 0.6847,
+    "p95_planning_latency_ms": 2.5294,
     "median_distance_overhead": 0,
     "median_temporal_overhead_wait_steps": 0,
     "largest_fully_validated_fleet": 5,
@@ -52,7 +52,7 @@
       "independent_all_reached_rate": 0.5,
       "median_wait_steps": 0.0,
       "median_makespan": 5.0,
-      "median_planning_ms": 0.4282
+      "median_planning_ms": 0.5024
     },
     {
       "scenario_type": "corridor",
@@ -63,7 +63,7 @@
       "independent_all_reached_rate": 0.0,
       "median_wait_steps": 0.5,
       "median_makespan": 6.5,
-      "median_planning_ms": 5.2846
+      "median_planning_ms": 5.6408
     },
     {
       "scenario_type": "intersection",
@@ -74,7 +74,7 @@
       "independent_all_reached_rate": 1.0,
       "median_wait_steps": 0.0,
       "median_makespan": 7.0,
-      "median_planning_ms": 0.6749
+      "median_planning_ms": 0.6814
     },
     {
       "scenario_type": "intersection",
@@ -85,7 +85,7 @@
       "independent_all_reached_rate": 1.0,
       "median_wait_steps": 0.0,
       "median_makespan": 9.0,
-      "median_planning_ms": 2.1629
+      "median_planning_ms": 2.4151
     },
     {
       "scenario_type": "open",
@@ -96,7 +96,7 @@
       "independent_all_reached_rate": 1.0,
       "median_wait_steps": 0.0,
       "median_makespan": 2.0,
-      "median_planning_ms": 0.3038
+      "median_planning_ms": 0.2666
     },
     {
       "scenario_type": "open",
@@ -107,7 +107,7 @@
       "independent_all_reached_rate": 0.0,
       "median_wait_steps": 1.0,
       "median_makespan": 10.5,
-      "median_planning_ms": 1.8554
+      "median_planning_ms": 1.7936
     }
   ],
   "raw_runs": [
@@ -131,8 +131,8 @@
       "execution_vertex_conflicts": 0,
       "execution_edge_conflicts": 0,
       "validation_success": true,
-      "planning_time_ms": 0.1963,
-      "execution_time_ms": 0.0833,
+      "planning_time_ms": 0.2002,
+      "execution_time_ms": 0.0814,
       "distance_overhead": 0,
       "failure_reason": ""
     },
@@ -156,8 +156,8 @@
       "execution_vertex_conflicts": 0,
       "execution_edge_conflicts": 0,
       "validation_success": true,
-      "planning_time_ms": 0.4112,
-      "execution_time_ms": 0.1375,
+      "planning_time_ms": 0.3331,
+      "execution_time_ms": 0.1286,
       "distance_overhead": 0,
       "failure_reason": ""
     },
@@ -181,8 +181,8 @@
       "execution_vertex_conflicts": 0,
       "execution_edge_conflicts": 0,
       "validation_success": true,
-      "planning_time_ms": 1.6871,
-      "execution_time_ms": 0.6657,
+      "planning_time_ms": 1.6074,
+      "execution_time_ms": 0.6475,
       "distance_overhead": 0,
       "failure_reason": ""
     },
@@ -206,8 +206,8 @@
       "execution_vertex_conflicts": 0,
       "execution_edge_conflicts": 0,
       "validation_success": true,
-      "planning_time_ms": 2.0237,
-      "execution_time_ms": 0.8153,
+      "planning_time_ms": 1.9798,
+      "execution_time_ms": 0.8265,
       "distance_overhead": 2,
       "failure_reason": ""
     },
@@ -231,8 +231,8 @@
       "execution_vertex_conflicts": 0,
       "execution_edge_conflicts": 0,
       "validation_success": true,
-      "planning_time_ms": 0.6818,
-      "execution_time_ms": 0.237,
+      "planning_time_ms": 0.678,
+      "execution_time_ms": 0.2911,
       "distance_overhead": 0,
       "failure_reason": ""
     },
@@ -256,8 +256,8 @@
       "execution_vertex_conflicts": 0,
       "execution_edge_conflicts": 0,
       "validation_success": true,
-      "planning_time_ms": 0.6681,
-      "execution_time_ms": 0.236,
+      "planning_time_ms": 0.6847,
+      "execution_time_ms": 0.2471,
       "distance_overhead": 0,
       "failure_reason": ""
     },
@@ -281,8 +281,8 @@
       "execution_vertex_conflicts": 0,
       "execution_edge_conflicts": 0,
       "validation_success": true,
-      "planning_time_ms": 2.1356,
-      "execution_time_ms": 0.6968,
+      "planning_time_ms": 2.3009,
+      "execution_time_ms": 0.7588,
       "distance_overhead": 0,
       "failure_reason": ""
     },
@@ -306,8 +306,8 @@
       "execution_vertex_conflicts": 0,
       "execution_edge_conflicts": 0,
       "validation_success": true,
-      "planning_time_ms": 2.1901,
-      "execution_time_ms": 0.6951,
+      "planning_time_ms": 2.5294,
+      "execution_time_ms": 0.8145,
       "distance_overhead": 0,
       "failure_reason": ""
     },
@@ -331,8 +331,8 @@
       "execution_vertex_conflicts": 0,
       "execution_edge_conflicts": 0,
       "validation_success": true,
-      "planning_time_ms": 0.3863,
-      "execution_time_ms": 0.1543,
+      "planning_time_ms": 0.4532,
+      "execution_time_ms": 0.1839,
       "distance_overhead": 0,
       "failure_reason": ""
     },
@@ -356,8 +356,8 @@
       "execution_vertex_conflicts": 0,
       "execution_edge_conflicts": 0,
       "validation_success": true,
-      "planning_time_ms": 0.4701,
-      "execution_time_ms": 0.2029,
+      "planning_time_ms": 0.5517,
+      "execution_time_ms": 0.2482,
       "distance_overhead": 2,
       "failure_reason": ""
     },
@@ -381,8 +381,8 @@
       "execution_vertex_conflicts": 0,
       "execution_edge_conflicts": 0,
       "validation_success": true,
-      "planning_time_ms": 9.3426,
-      "execution_time_ms": 0.2926,
+      "planning_time_ms": 9.9088,
+      "execution_time_ms": 0.3389,
       "distance_overhead": 0,
       "failure_reason": "R04: no conflict-free route found within the planning horizon"
     },
@@ -406,8 +406,8 @@
       "execution_vertex_conflicts": 0,
       "execution_edge_conflicts": 0,
       "validation_success": true,
-      "planning_time_ms": 1.2266,
-      "execution_time_ms": 0.6358,
+      "planning_time_ms": 1.3729,
+      "execution_time_ms": 0.7334,
       "distance_overhead": 2,
       "failure_reason": ""
     }

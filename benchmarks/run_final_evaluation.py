@@ -110,7 +110,7 @@ def relative_improvement(baseline: float, improved: float) -> Optional[float]:
 
 
 # ======================================================================
-# One family = one benchmark module + the metrics we vouch for
+# One family = one benchmark module + the metrics it reports
 # ======================================================================
 class FamilyEvaluation:
     def __init__(self, key: str, title: str) -> None:

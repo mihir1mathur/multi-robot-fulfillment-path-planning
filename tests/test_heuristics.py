@@ -128,7 +128,7 @@ def test_never_overestimates_the_true_cost_when_obstacles_force_a_detour(
 ) -> None:
     """With obstacles the true cost grows, so the heuristic under-estimates.
 
-    Under-estimating is exactly what we want: obstacles can only ever make the
+    Under-estimating is exactly the required property: obstacles can only ever make the
     real route longer, never shorter, so Manhattan distance stays a valid lower
     bound and A* stays optimal.
     """

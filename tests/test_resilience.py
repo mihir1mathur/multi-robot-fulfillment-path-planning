@@ -49,8 +49,8 @@ def test_a_database_error_mid_request_is_a_controlled_500_without_secrets(
 
     monkeypatch.setattr(api_database, "session", _boom)
 
-    # raise_server_exceptions=False so we see the app's real 500 response body
-    # (the controlled error) instead of TestClient re-raising for the developer.
+    # raise_server_exceptions=False surfaces the app's real 500 response body
+    # (the controlled error) instead of TestClient re-raising for the caller.
     with TestClient(api_app, raise_server_exceptions=False) as client:
         client.headers["Authorization"] = f"Bearer {token}"
         # session() is patched, so even resolving get_current_user fails

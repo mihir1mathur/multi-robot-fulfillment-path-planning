@@ -18,7 +18,7 @@ A robot that is at cell A at time t and at cell B at time t+1 reserves the
 edge as `(A, B, t)` - keyed by the EARLIER timestep.
 
     A SWAP (head-on) conflict is: robot X does A->B at t, robot Y does B->A at
-    the same t. Y's move reserves `(B, A, t)`; we detect the clash by looking
+    the same t. Y's move reserves `(B, A, t)`; the clash is detected by looking
     for the REVERSE edge `(A, B, t)` already in the table.
 
 GOAL HOLD

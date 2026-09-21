@@ -109,7 +109,7 @@ def build_sample_warehouse() -> Warehouse:
 
     # Racks first. They must exist before the functional locations are marked,
     # because Warehouse refuses to mark a permanently blocked cell as a pickup
-    # point - which is exactly the safety check we want exercised here.
+    # point - which is exactly the safety check this scenario exercises.
     for row in RACK_ROWS:
         for col in RACK_COLS:
             warehouse.add_static_obstacle(

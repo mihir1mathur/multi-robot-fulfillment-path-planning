@@ -165,7 +165,7 @@ def test_catches_an_illegal_jump(open_warehouse: Warehouse) -> None:
 
 
 def test_catches_a_diagonal_step(open_warehouse: Warehouse) -> None:
-    # A diagonal looks adjacent but is two moves under our rules.
+    # A diagonal looks adjacent but is two moves under the grid's movement rules.
     result = make_result(
         Position(0, 0), Position(1, 1), [Position(0, 0), Position(1, 1)]
     )

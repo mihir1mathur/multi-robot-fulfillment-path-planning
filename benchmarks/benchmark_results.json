@@ -27,7 +27,7 @@
       "success": true,
       "path_cost": 26.0,
       "nodes_expanded": 333,
-      "planning_time_ms": 4.1407
+      "planning_time_ms": 4.7088
     },
     {
       "algorithm": "astar",
@@ -38,7 +38,7 @@
       "success": true,
       "path_cost": 26.0,
       "nodes_expanded": 35,
-      "planning_time_ms": 0.5021
+      "planning_time_ms": 0.58095
     },
     {
       "algorithm": "dijkstra",
@@ -49,7 +49,7 @@
       "success": true,
       "path_cost": 24.0,
       "nodes_expanded": 353,
-      "planning_time_ms": 4.29985
+      "planning_time_ms": 4.9691
     },
     {
       "algorithm": "astar",
@@ -60,7 +60,7 @@
       "success": true,
       "path_cost": 24.0,
       "nodes_expanded": 25,
-      "planning_time_ms": 0.36225
+      "planning_time_ms": 0.41965
     },
     {
       "algorithm": "dijkstra",
@@ -71,7 +71,7 @@
       "success": true,
       "path_cost": 24.0,
       "nodes_expanded": 310,
-      "planning_time_ms": 3.7857
+      "planning_time_ms": 4.3858
     },
     {
       "algorithm": "astar",
@@ -82,7 +82,7 @@
       "success": true,
       "path_cost": 24.0,
       "nodes_expanded": 46,
-      "planning_time_ms": 0.63085
+      "planning_time_ms": 0.71625
     },
     {
       "algorithm": "dijkstra",
@@ -93,7 +93,7 @@
       "success": true,
       "path_cost": 30.0,
       "nodes_expanded": 303,
-      "planning_time_ms": 3.5626
+      "planning_time_ms": 5.0888
     },
     {
       "algorithm": "astar",
@@ -104,7 +104,7 @@
       "success": true,
       "path_cost": 30.0,
       "nodes_expanded": 77,
-      "planning_time_ms": 1.0087
+      "planning_time_ms": 1.19815
     },
     {
       "algorithm": "dijkstra",
@@ -115,7 +115,7 @@
       "success": true,
       "path_cost": 28.0,
       "nodes_expanded": 312,
-      "planning_time_ms": 3.6663
+      "planning_time_ms": 4.279
     },
     {
       "algorithm": "astar",
@@ -126,7 +126,7 @@
       "success": true,
       "path_cost": 28.0,
       "nodes_expanded": 52,
-      "planning_time_ms": 0.6699
+      "planning_time_ms": 0.7458
     },
     {
       "algorithm": "dijkstra",
@@ -137,7 +137,7 @@
       "success": true,
       "path_cost": 30.0,
       "nodes_expanded": 320,
-      "planning_time_ms": 5.30485
+      "planning_time_ms": 4.27075
     },
     {
       "algorithm": "astar",
@@ -148,7 +148,7 @@
       "success": true,
       "path_cost": 30.0,
       "nodes_expanded": 61,
-      "planning_time_ms": 0.81385
+      "planning_time_ms": 0.93925
     },
     {
       "algorithm": "dijkstra",
@@ -159,7 +159,7 @@
       "success": true,
       "path_cost": 47.0,
       "nodes_expanded": 805,
-      "planning_time_ms": 10.02675
+      "planning_time_ms": 11.6369
     },
     {
       "algorithm": "astar",
@@ -170,7 +170,7 @@
       "success": true,
       "path_cost": 47.0,
       "nodes_expanded": 72,
-      "planning_time_ms": 1.04255
+      "planning_time_ms": 1.2161
     },
     {
       "algorithm": "dijkstra",
@@ -181,7 +181,7 @@
       "success": true,
       "path_cost": 47.0,
       "nodes_expanded": 795,
-      "planning_time_ms": 10.1788
+      "planning_time_ms": 11.0622
     },
     {
       "algorithm": "astar",
@@ -192,7 +192,7 @@
       "success": true,
       "path_cost": 47.0,
       "nodes_expanded": 91,
-      "planning_time_ms": 1.31825
+      "planning_time_ms": 1.4031
     },
     {
       "algorithm": "dijkstra",
@@ -203,7 +203,7 @@
       "success": true,
       "path_cost": 45.0,
       "nodes_expanded": 775,
-      "planning_time_ms": 9.51215
+      "planning_time_ms": 12.1021
     },
     {
       "algorithm": "astar",
@@ -214,7 +214,7 @@
       "success": true,
       "path_cost": 45.0,
       "nodes_expanded": 55,
-      "planning_time_ms": 0.7822
+      "planning_time_ms": 0.86525
     },
     {
       "algorithm": "dijkstra",
@@ -225,7 +225,7 @@
       "success": true,
       "path_cost": 47.0,
       "nodes_expanded": 704,
-      "planning_time_ms": 8.45
+      "planning_time_ms": 9.656
     },
     {
       "algorithm": "astar",
@@ -236,7 +236,7 @@
       "success": true,
       "path_cost": 47.0,
       "nodes_expanded": 54,
-      "planning_time_ms": 0.73325
+      "planning_time_ms": 0.8601
     },
     {
       "algorithm": "dijkstra",
@@ -247,7 +247,7 @@
       "success": true,
       "path_cost": 46.0,
       "nodes_expanded": 714,
-      "planning_time_ms": 8.66595
+      "planning_time_ms": 10.3686
     },
     {
       "algorithm": "astar",
@@ -258,7 +258,7 @@
       "success": true,
       "path_cost": 46.0,
       "nodes_expanded": 73,
-      "planning_time_ms": 1.4279
+      "planning_time_ms": 1.19275
     },
     {
       "algorithm": "dijkstra",
@@ -269,7 +269,7 @@
       "success": true,
       "path_cost": 51.0,
       "nodes_expanded": 717,
-      "planning_time_ms": 9.1369
+      "planning_time_ms": 10.65525
     },
     {
       "algorithm": "astar",
@@ -280,7 +280,7 @@
       "success": true,
       "path_cost": 51.0,
       "nodes_expanded": 86,
-      "planning_time_ms": 1.19135
+      "planning_time_ms": 1.4351
     }
   ],
   "aggregates": [
@@ -290,8 +290,8 @@
       "obstacle_density": 0.1,
       "scenarios": 3,
       "success_rate": 1.0,
-      "median_planning_time_ms": 0.5021,
-      "p95_planning_time_ms": 0.63085,
+      "median_planning_time_ms": 0.58095,
+      "p95_planning_time_ms": 0.71625,
       "median_nodes_expanded": 35
     },
     {
@@ -300,8 +300,8 @@
       "obstacle_density": 0.2,
       "scenarios": 3,
       "success_rate": 1.0,
-      "median_planning_time_ms": 0.81385,
-      "p95_planning_time_ms": 1.0087,
+      "median_planning_time_ms": 0.93925,
+      "p95_planning_time_ms": 1.19815,
       "median_nodes_expanded": 61
     },
     {
@@ -310,8 +310,8 @@
       "obstacle_density": 0.1,
       "scenarios": 3,
       "success_rate": 1.0,
-      "median_planning_time_ms": 1.04255,
-      "p95_planning_time_ms": 1.31825,
+      "median_planning_time_ms": 1.2161,
+      "p95_planning_time_ms": 1.4031,
       "median_nodes_expanded": 72
     },
     {
@@ -320,8 +320,8 @@
       "obstacle_density": 0.2,
       "scenarios": 3,
       "success_rate": 1.0,
-      "median_planning_time_ms": 1.19135,
-      "p95_planning_time_ms": 1.4279,
+      "median_planning_time_ms": 1.19275,
+      "p95_planning_time_ms": 1.4351,
       "median_nodes_expanded": 73
     },
     {
@@ -330,8 +330,8 @@
       "obstacle_density": 0.1,
       "scenarios": 3,
       "success_rate": 1.0,
-      "median_planning_time_ms": 4.1407,
-      "p95_planning_time_ms": 4.29985,
+      "median_planning_time_ms": 4.7088,
+      "p95_planning_time_ms": 4.9691,
       "median_nodes_expanded": 333
     },
     {
@@ -340,8 +340,8 @@
       "obstacle_density": 0.2,
       "scenarios": 3,
       "success_rate": 1.0,
-      "median_planning_time_ms": 3.6663,
-      "p95_planning_time_ms": 5.30485,
+      "median_planning_time_ms": 4.279,
+      "p95_planning_time_ms": 5.0888,
       "median_nodes_expanded": 312
     },
     {
@@ -350,8 +350,8 @@
       "obstacle_density": 0.1,
       "scenarios": 3,
       "success_rate": 1.0,
-      "median_planning_time_ms": 10.02675,
-      "p95_planning_time_ms": 10.1788,
+      "median_planning_time_ms": 11.6369,
+      "p95_planning_time_ms": 12.1021,
       "median_nodes_expanded": 795
     },
     {
@@ -360,8 +360,8 @@
       "obstacle_density": 0.2,
       "scenarios": 3,
       "success_rate": 1.0,
-      "median_planning_time_ms": 8.66595,
-      "p95_planning_time_ms": 9.1369,
+      "median_planning_time_ms": 10.3686,
+      "p95_planning_time_ms": 10.65525,
       "median_nodes_expanded": 714
     }
   ],

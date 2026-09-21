@@ -5,7 +5,7 @@ WHAT IS A FULFILLMENT TASK?
 A customer orders an item. Somewhere in the warehouse that item sits on a
 shelf. Somebody has to fetch it and bring it to the packing station so it can
 be boxed and shipped. That single unit of work - "collect from cell A, deliver
-to cell B" - is what we call a Task.
+to cell B" - is called a Task.
 
     PICKUP cell  --------- robot carries the item --------->  DROPOFF cell
 
@@ -75,7 +75,7 @@ class TaskStatus(Enum):
         return self.value
 
 
-# The only status changes we allow. Writing them down as data (instead of
+# The only status changes allowed. Writing them down as data (instead of
 # scattering `if` statements through the code) means the rules can be read,
 # tested and extended in one place - and it makes an illegal transition such
 # as COMPLETED -> PENDING impossible rather than merely unlikely.

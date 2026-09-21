@@ -179,8 +179,8 @@ def reconstruct_path(
 
         came_from = {B: A, C: B, D: C}
 
-    To recover the route we start at the goal and walk backwards until we
-    reach the start:
+    To recover the route, start at the goal and walk backwards until
+    reaching the start:
 
         D -> C -> B -> A
 

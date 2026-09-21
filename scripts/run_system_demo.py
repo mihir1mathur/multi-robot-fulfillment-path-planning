@@ -407,7 +407,7 @@ def _event_of(recovery, kind: str):
 
 def _duplicate_task_completions(simulator) -> int:
     """Tasks must never be marked completed more than once. There is no counter
-    in the model for this, so we check the invariant a different way: a task is
+    in the model for this, so the invariant is checked a different way: a task is
     either terminal once or not - a violation would show up as a task both
     COMPLETED and still assigned to a live robot heading for it. Always 0 here;
     kept as an explicit guard."""

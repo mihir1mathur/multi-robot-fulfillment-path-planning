@@ -144,7 +144,7 @@ class RouteExecutor:
                 self.simulator.move_robot(robot_id, next_cell)
             except InvalidMoveError as error:
                 # A step was refused. The simulator left the robot untouched.
-                # Stop here and report exactly how far we got.
+                # Stop here and report exactly how far execution got.
                 return ExecutionResult.failed(
                     robot_id=robot_id,
                     start=start,

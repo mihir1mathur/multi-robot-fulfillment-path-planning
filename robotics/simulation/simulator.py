@@ -407,7 +407,7 @@ class WarehouseSimulator:
 
         Returning dictionaries rather than objects means this can be printed,
         written to a JSON log, compared in a test, or served by an API later
-        without any of those callers depending on our classes.
+        without any of those callers depending on the simulator's classes.
         """
         return {
             "warehouse": {

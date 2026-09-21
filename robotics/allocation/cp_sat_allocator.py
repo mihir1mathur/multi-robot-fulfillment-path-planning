@@ -13,7 +13,7 @@ one robot, and only feasible pairings (payload, battery, reachable) may be
 chosen.
 
 This is a classic ASSIGNMENT problem. CP-SAT (a constraint-programming solver
-with a SAT engine) solves it to proven optimality for the sizes we use.
+with a SAT engine) solves it to proven optimality at the problem sizes here.
 
 THE MODEL
 ---------
@@ -65,7 +65,7 @@ WHY NOT BRUTE FORCE?
 --------------------
 For n robots and n tasks there are up to n! full assignments. n = 12 is already
 ~479 million. CP-SAT prunes that search with the constraints and returns a
-provably optimal answer in milliseconds at our sizes.
+provably optimal answer in milliseconds at these problem sizes.
 
 DETERMINISM
 -----------

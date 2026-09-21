@@ -2,11 +2,11 @@
 
 THE IDEA IN ONE PARAGRAPH
 -------------------------
-Start at the start cell with a cost of 0. Repeatedly take the cheapest cell we
-have found so far but not yet finalised, mark it finalised, and look at its
-neighbours: if going through this cell is cheaper than any route we already
-knew to a neighbour, record the better cost and remember that we arrived from
-here. Keep going until we finalise the goal.
+Start at the start cell with a cost of 0. Repeatedly take the cheapest cell
+found so far but not yet finalised, mark it finalised, and look at its
+neighbours: if going through this cell is cheaper than any route already
+known to a neighbour, record the better cost and remember the cell arrived
+from. Keep going until the goal is finalised.
 
 Picture it as a wave spreading outwards from the start at a constant speed. The
 wave reaches nearer cells before further ones, so the first time it touches the
@@ -105,7 +105,7 @@ def plan(start: Position, goal: Position, warehouse: Warehouse) -> PathResult:
     # best_cost[cell] = cheapest cost found SO FAR from start to that cell.
     best_cost: Dict[Position, float] = {start: 0.0}
 
-    # came_from[cell] = the cell we arrived from on that cheapest route.
+    # came_from[cell] = the cell arrived from on that cheapest route.
     came_from: Dict[Position, Position] = {}
 
     # Cells whose cost is final. Once a cell is here it is never improved
@@ -125,8 +125,8 @@ def plan(start: Position, goal: Position, warehouse: Warehouse) -> PathResult:
     while frontier:
         _, _, current = heapq.heappop(frontier)
 
-        # STALE ENTRY. We push a new entry whenever we find a better route to a
-        # cell, and heapq cannot remove the old one. So the queue can hold
+        # STALE ENTRY. A new entry is pushed whenever a better route to a
+        # cell is found, and heapq cannot remove the old one. So the queue can hold
         # several entries for the same cell, and all but the cheapest are
         # obsolete by the time they surface. Skipping them here is what keeps
         # `nodes_expanded` an honest count of real expansions.
@@ -153,7 +153,7 @@ def plan(start: Position, goal: Position, warehouse: Warehouse) -> PathResult:
                 continue
 
             # "Relaxation": ask whether going through `current` beats the best
-            # route to `neighbour` we already knew about.
+            # route to `neighbour` already known.
             new_cost = current_cost + MOVE_COST
             if new_cost < best_cost.get(neighbour, float("inf")):
                 best_cost[neighbour] = new_cost

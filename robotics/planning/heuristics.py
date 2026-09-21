@@ -28,7 +28,7 @@ def manhattan_distance(a: Position, b: Position) -> float:
 
     WHY IT IS THE RIGHT HEURISTIC FOR THIS PROJECT
     ----------------------------------------------
-    It matches our movement rules exactly:
+    It matches the movement rules exactly:
 
       * robots move only UP, DOWN, LEFT and RIGHT,
       * every orthogonal step costs exactly the same (MOVE_COST = 1),

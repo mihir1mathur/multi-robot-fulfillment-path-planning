@@ -20,7 +20,7 @@ WHY A GRID AT ALL?
 ------------------
 A real warehouse floor is continuous space. Reasoning about continuous space
 requires geometry, robot shapes and motion models. By snapping the floor to
-fixed-size square cells we get a *graph*: each cell is a node, each legal move
+fixed-size square cells, the result is a *graph*: each cell is a node, each legal move
 between neighbouring cells is an edge. Graph search algorithms (A*, Dijkstra -
 future work) then apply directly. This is the standard first abstraction in
 warehouse robotics, and it keeps this layer small enough to test exhaustively.
@@ -202,7 +202,7 @@ class Grid:
 
     @property
     def blocked_cells(self) -> Set[Position]:
-        """A copy of the blocked cells, so callers cannot mutate our state."""
+        """A copy of the blocked cells, so callers cannot mutate internal state."""
         return set(self._blocked_cells)
 
     # ------------------------------------------------------------------

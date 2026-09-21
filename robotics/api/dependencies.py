@@ -35,8 +35,8 @@ from robotics.persistence.database import Database
 from robotics.persistence.models import UserRecord
 from robotics.services.errors import ServiceError
 
-# auto_error=False so a MISSING header reaches our code as None and we raise a
-# consistent 401 body, instead of FastAPI's default bare 403.
+# auto_error=False so a MISSING header reaches this code as None, allowing a
+# consistent 401 body to be raised instead of FastAPI's default bare 403.
 _bearer = HTTPBearer(auto_error=False)
 
 

@@ -234,9 +234,9 @@ class Robot:
         """Change the robot's status.
 
         This deliberately does not police which transitions are legal. A full
-        state machine would be premature: we do not yet have the behaviours
-        (picking, charging cycles, fault recovery) that the transitions would
-        describe, and an invented rule set would only have to be rewritten.
+        state machine would be premature: the behaviours (picking, charging
+        cycles, fault recovery) that the transitions would describe do not
+        yet exist, and an invented rule set would only have to be rewritten.
         The states that DO have rules today - assignment and movement - are
         enforced by the dedicated methods above and below.
         """

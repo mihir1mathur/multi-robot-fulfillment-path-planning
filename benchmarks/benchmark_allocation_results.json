@@ -31,7 +31,7 @@
       "eligible_pair_count": 14,
       "infeasible_pair_count": 11,
       "total_estimated_travel_cost": 67,
-      "allocation_time_ms": 0.0773,
+      "allocation_time_ms": 0.0814,
       "solver_status": "GREEDY",
       "valid": true
     },
@@ -45,7 +45,7 @@
       "eligible_pair_count": 14,
       "infeasible_pair_count": 11,
       "total_estimated_travel_cost": 93,
-      "allocation_time_ms": 2.3426,
+      "allocation_time_ms": 2.9184,
       "solver_status": "OPTIMAL",
       "valid": true
     },
@@ -59,7 +59,7 @@
       "eligible_pair_count": 11,
       "infeasible_pair_count": 14,
       "total_estimated_travel_cost": 65,
-      "allocation_time_ms": 0.079,
+      "allocation_time_ms": 0.0786,
       "solver_status": "GREEDY",
       "valid": true
     },
@@ -73,7 +73,7 @@
       "eligible_pair_count": 11,
       "infeasible_pair_count": 14,
       "total_estimated_travel_cost": 41,
-      "allocation_time_ms": 2.2633,
+      "allocation_time_ms": 2.5598,
       "solver_status": "OPTIMAL",
       "valid": true
     },
@@ -87,7 +87,7 @@
       "eligible_pair_count": 17,
       "infeasible_pair_count": 8,
       "total_estimated_travel_cost": 89,
-      "allocation_time_ms": 0.1718,
+      "allocation_time_ms": 0.0966,
       "solver_status": "GREEDY",
       "valid": true
     },
@@ -101,7 +101,7 @@
       "eligible_pair_count": 17,
       "infeasible_pair_count": 8,
       "total_estimated_travel_cost": 86,
-      "allocation_time_ms": 2.8288,
+      "allocation_time_ms": 3.7738,
       "solver_status": "OPTIMAL",
       "valid": true
     },
@@ -115,7 +115,7 @@
       "eligible_pair_count": 80,
       "infeasible_pair_count": 20,
       "total_estimated_travel_cost": 299,
-      "allocation_time_ms": 0.3213,
+      "allocation_time_ms": 0.3813,
       "solver_status": "GREEDY",
       "valid": true
     },
@@ -129,7 +129,7 @@
       "eligible_pair_count": 80,
       "infeasible_pair_count": 20,
       "total_estimated_travel_cost": 265,
-      "allocation_time_ms": 7.9748,
+      "allocation_time_ms": 10.9982,
       "solver_status": "OPTIMAL",
       "valid": true
     },
@@ -143,7 +143,7 @@
       "eligible_pair_count": 71,
       "infeasible_pair_count": 29,
       "total_estimated_travel_cost": 189,
-      "allocation_time_ms": 0.3551,
+      "allocation_time_ms": 0.4144,
       "solver_status": "GREEDY",
       "valid": true
     },
@@ -157,7 +157,7 @@
       "eligible_pair_count": 71,
       "infeasible_pair_count": 29,
       "total_estimated_travel_cost": 152,
-      "allocation_time_ms": 6.1544,
+      "allocation_time_ms": 7.078,
       "solver_status": "OPTIMAL",
       "valid": true
     },
@@ -171,7 +171,7 @@
       "eligible_pair_count": 58,
       "infeasible_pair_count": 42,
       "total_estimated_travel_cost": 142,
-      "allocation_time_ms": 0.2996,
+      "allocation_time_ms": 0.3609,
       "solver_status": "GREEDY",
       "valid": true
     },
@@ -185,7 +185,7 @@
       "eligible_pair_count": 58,
       "infeasible_pair_count": 42,
       "total_estimated_travel_cost": 121,
-      "allocation_time_ms": 5.9262,
+      "allocation_time_ms": 5.9689,
       "solver_status": "OPTIMAL",
       "valid": true
     }
@@ -251,9 +251,9 @@
       "algorithm": "cp_sat",
       "scenarios": 6,
       "assignment_rate": 0.7778,
-      "median_allocation_time_ms": 4.3775,
-      "p50_allocation_time_ms": 2.8288,
-      "p95_allocation_time_ms": 7.9748,
+      "median_allocation_time_ms": 4.87135,
+      "p50_allocation_time_ms": 3.7738,
+      "p95_allocation_time_ms": 10.9982,
       "median_total_estimated_cost": 107.0,
       "valid_result_rate": 1.0,
       "success_rate": 1.0
@@ -262,9 +262,9 @@
       "algorithm": "greedy",
       "scenarios": 6,
       "assignment_rate": 0.7556,
-      "median_allocation_time_ms": 0.2357,
-      "p50_allocation_time_ms": 0.1718,
-      "p95_allocation_time_ms": 0.3551,
+      "median_allocation_time_ms": 0.22875,
+      "p50_allocation_time_ms": 0.0966,
+      "p95_allocation_time_ms": 0.4144,
       "median_total_estimated_cost": 115.5,
       "valid_result_rate": 1.0,
       "success_rate": 1.0

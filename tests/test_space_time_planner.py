@@ -103,7 +103,7 @@ def test_avoids_an_edge_swap() -> None:
     reservations.reserve_vertex(P(1, 1), 0, "OTHER")
     reservations.reserve_vertex(P(1, 2), 1, "OTHER")
     reservations.reserve_edge(P(1, 1), P(1, 2), 0, "OTHER")
-    # our robot at (1,2) wants (1,1) - the straight move would swap
+    # the robot at (1,2) wants (1,1) - the straight move would swap
     tp = _plan(wh, P(1, 2), P(1, 0), reservations)
     assert tp.success
     # it must not do (1,2)->(1,1) during t=0->t=1

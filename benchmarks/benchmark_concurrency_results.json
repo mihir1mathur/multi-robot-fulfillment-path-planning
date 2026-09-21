@@ -23,11 +23,11 @@
       "status_counts": {
         "200": 20
       },
-      "elapsed_s": 0.2147,
-      "throughput_req_per_s": 93.1,
-      "p50_latency_ms": 10.778,
-      "p95_latency_ms": 12.007,
-      "max_latency_ms": 12.059
+      "elapsed_s": 0.1328,
+      "throughput_req_per_s": 150.6,
+      "p50_latency_ms": 6.381,
+      "p95_latency_ms": 7.804,
+      "max_latency_ms": 7.968
     },
     {
       "concurrency": 5,
@@ -37,18 +37,18 @@
       "status_counts": {
         "200": 20
       },
-      "elapsed_s": 0.373,
-      "throughput_req_per_s": 53.6,
-      "p50_latency_ms": 40.933,
-      "p95_latency_ms": 226.872,
-      "max_latency_ms": 351.024
+      "elapsed_s": 0.1837,
+      "throughput_req_per_s": 108.9,
+      "p50_latency_ms": 13.216,
+      "p95_latency_ms": 127.046,
+      "max_latency_ms": 149.057
     }
   ],
   "race_on_duplicate_create": {
     "threads": 8,
     "status_counts": {
-      "201": 1,
-      "409": 7
+      "409": 7,
+      "201": 1
     },
     "created_201": 1,
     "conflict_409": 7,
@@ -64,8 +64,8 @@
       20
     ],
     "scenarios": 4,
-    "sequential_elapsed_s": 0.0342,
-    "concurrent_elapsed_s": 0.0398,
+    "sequential_elapsed_s": 0.0325,
+    "concurrent_elapsed_s": 0.038,
     "results_identical": true,
     "per_fleet": {
       "2": {
